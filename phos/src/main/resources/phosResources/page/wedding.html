@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/monk.ui.css"/>
+</head>
+
+<body>
+
+<div class="C-head">
+    <div class="w1200 clearfix">
+        <a class="logo" href=""></a>
+        <div class="nav">
+            <ul>
+                <li class='tip'>
+                    <i></i>
+                    <a href="index.html">
+
+                        <span class="s-all">首页<span class="s-en">Home</span></span>
+                    </a>
+                </li>
+
+                <li>
+                    <i></i>
+                    <a href='wedding.html'>
+
+                        <span class='s-all'>评论<span class='s-en'>Comment</span></span>
+                    </a>
+                </li>
+
+                <li>
+                    <i></i>
+                    <a href='#'>
+
+                        <span class='s-all'>选摄影师<span class='s-en'>Photographer</span></span>
+                    </a>
+                </li>
+                <li>
+                    <i></i>
+                    <a href='#'>
+
+                        <span class='s-all'>拍摄景点<span class='s-en'>Spots</span></span>
+                    </a>
+                </li>
+                <li>
+                    <i></i>
+                    <a href='information.html'>
+
+                        <span class='s-all'>热门活动<span class='s-en'>Activities</span></span>
+                    </a>
+                </li>
+
+                <li><i></i>
+                    <a href="#"><span class="s-all">品牌<span class="s-en">Brand</span></span>
+                    </a>
+                </li>
+                <li><i></i>
+                    <a href="#"><span class="s-all">会员<span class="s-en">Member</span></span>
+                    </a>
+                    <i class="last"></i>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<form class="monk-form" action="index.html">
+    <div class="monk-form-item" style="margin: 20px 35%;">
+        <label class="monk-form-label">姓名</label>
+        <div class="monk-form-wrap">
+            <span class="monk-iconfont border-right icon-monk-input"></span>
+            <input type="text" class="monk-form-input middle" id="nameInput" placeholder="请输入..." />
+            <span class="monk-iconfont border-left icon-monk-dacha monk-clear-input"></span>
+        </div>
+        <label class="monk-form-label">评论内容</label>
+        <div class="monk-form-wrap">
+            <span class="monk-iconfont border-right icon-monk-input textarea-icon"></span>
+            <textarea class="monk-form-textarea min" id="commentInput" placeholder="请输入..."></textarea>
+            <span class="monk-iconfont border-left icon-monk-dacha monk-clear-input textarea-icon"></span>
+        </div>
+        <div class="monk-form-tip">写点什么描述一下</div>
+        <input type="submit" class="monk-input-button turquoise monk-form-submit" id="butt" onclick="sentPoss()" value="保存提交" />
+    </div>
+
+</form>
+<div class="footer-wrap mar-t20">
+    <div class="copyright">
+        <a href="#" style="color: #fff;text-decoration: none;">赣备100000016号</a> &nbsp;<a href="#" style="color: #fff; text-decoration: none;"></a></a><br /> @JXUT.EDU 19本电商二班
+    </div>
+</div>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    function sentPoss(){
+        // 将表单数据转为json
+        var formData = {
+            name:"",
+            comment:"",
+        };
+        // 获取表单数据
+        let name = document.getElementById("nameInput").value;
+        // 设置数据
+        formData.name = name;
+
+        // 获取表单数据
+        let comment = document.getElementById("commentInput").value;
+        // 设置数据
+        formData.comment = comment;
+
+
+        console.log(formData);
+        //2. 发送ajax请求
+        axios({
+            method:"post",
+            url:"http://localhost:8848/news/add",
+            data:formData
+        }).then(function (resp) {
+            // 判断响应数据是否为 success
+            if(resp.data == true){
+                location.href = "http://localhost:8848/xin/page/index.html";
+            }
+        })
+    }
+</script>
+</body>
+
+</html>

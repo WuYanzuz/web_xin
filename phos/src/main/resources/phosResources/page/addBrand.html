@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>添加品牌</title>
+</head>
+<body>
+<h3>添加品牌</h3>
+<form action="" method="post">
+    id：<input id="brandName" name="brandName"><br>
+    作者：<input id="companyName" name="companyName"><br>
+    标题：<input id="ordered" name="ordered"><br>
+    评论：<textarea rows="5" cols="20" id="description" name="description"></textarea><br>
+
+
+    <input type="button" id="btn"  value="提交">
+</form>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script>
+    //1. 给按钮绑定单击事件
+    document.getElementById("btn").onclick = function () {
+        // 将表单数据转为json
+        var formData = {
+            id:"",
+            author:"",
+            title:"",
+            comment:"",
+        };
+        // 获取表单数据
+        let brandName = document.getElementById("brandName").value;
+        // 设置数据
+        formData.id = brandName;
+
+        // 获取表单数据
+        let companyName = document.getElementById("companyName").value;
+        // 设置数据
+        formData.author = companyName;
+
+        // 获取表单数据
+        let ordered = document.getElementById("ordered").value;
+        // 设置数据
+        formData.title = ordered;
+
+        // 获取表单数据
+        let description = document.getElementById("description").value;
+        // 设置数据
+        formData.comment = description;
+        console.log(formData);
+        //2. 发送ajax请求
+        axios({
+            method:"post",
+            url:"http://localhost:8848/news/add",
+            data:formData
+        }).then(function (resp) {
+            // 判断响应数据是否为 success
+            if(resp.data == "success"){
+                location.href = "http://localhost:8848/xin/page/index.html";
+            }
+        })
+    }
+
+
+
+</script>
+</body>
+</html>

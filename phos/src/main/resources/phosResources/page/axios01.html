@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>axios1</title>
+</head>
+<body>
+<button id="butt" type="button" onclick="getReq()">ss</button>
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    // document.getElementById("butt").onclick=getReq();
+//1.get
+function getReq () {
+    let appName = navigator.appName;
+    return  axios.get("http://localhost:8848/news/test?"+appName).then(function (resp){
+        alert(resp.data);
+    })
+}
+
+</script>
+
+</html>

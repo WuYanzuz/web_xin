@@ -5,6 +5,27 @@
     <title>Title</title>
 </head>
 <body>
-<h1>你好</h1>
+<button id="butt">ss</button>
 </body>
+<script>
+    //创建XMLHttpRequest对象
+    var xhttp;
+    if (window.XMLHttpRequest) {
+        xhttp = new XMLHttpRequest();
+    } else {
+        // code for IE6, IE5
+        xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    document.getElementById("butt").onclick=function (){
+        xhttp.open("GET","http://localhost:8848/news/test");
+        xhttp.send();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                    alert(this.responseText);
+            }
+        }
+    }
+
+</script>
 </html>

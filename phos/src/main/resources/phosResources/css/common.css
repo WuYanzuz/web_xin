@@ -1,0 +1,167 @@
+﻿@charset "utf-8";
+/*common*/
+html, body, form, ul, li, dl, dt, dd, input, textarea, label, p, h1, h2, h3, h4, h5, h6 {
+	margin:0;
+	padding:0;
+}
+
+img {
+	border:0 none;
+}
+td {
+	word-break: break-all;
+}
+ul, li, dl, dt, dd {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+	color: #666;
+}
+a:hover {
+	color: #33a49a;
+}
+.clearfix {
+ *zoom: 1;
+}
+.clearfix:after {
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+.none {
+	display: none;
+}
+.w1200 {
+	width: 1200px;
+	margin: 0 auto;
+}
+.right {
+	float: right;
+}
+.more {
+	float: right;
+	padding-right: 20px;
+}
+.mar-t10 {
+	margin-top: 10px;
+}
+.mar-t20 {
+	margin-top: 20px;
+}
+.bg-white {
+	background: #fff;
+}
+.bg-wg {
+	background: #d6f0ed;
+}
+body {
+	font: 12px/1.5 'Microsoft Yahei', Verdana, Arial, sans-serif;
+	color: #666;
+}
+
+.C-head {
+	min-width: 1200px;
+	width: auto;
+	height: 98px;
+	background: #8fd0ca;
+}
+
+.nav {
+	float: right;
+}
+.nav li {
+	position: relative;
+	float: left;
+}
+.nav li i {
+	z-index: 2;
+	position: absolute;
+	top: 0;
+	left: -3px;
+	width: 6px;
+	height: 97px;
+}
+.nav li i.last {
+	top: 0;
+	left: auto;
+	right: -3px;
+}
+.nav li a {
+	position: relative;
+	float: left;
+	height: 98px;
+	padding: 0 33px;
+	text-align: center;
+	color: #fff;
+	outline: none;
+}
+.nav li a:hover {
+	color: #fff;
+	background: #33a49a center 0 no-repeat;
+}
+.nav li a span.s-all {
+	position: relative;
+	margin-top: 30px;
+	display: block;
+	font-size: 14px;
+	line-height: 18px;
+}
+.nav li a span.s-en {
+	display: block;
+	font-size: 9px;
+}
+.nav li p {
+	display: none;
+	z-index: 3;
+	position: absolute;
+	top: 8px;
+	font-family: Arial;
+	font-size: 48px;
+	line-height: 48px;
+	font-style: normal;
+}
+
+.nav li.tip a span.s-all {
+}
+.nav li.tip p {
+	display: block;
+}
+
+.footer-wrap {
+	padding: 20px 0;
+	background: #8fd0ca;
+}
+.copyright {
+	width: 1200px;
+	margin: 0 auto;
+	color: #fff;
+	text-align: center;
+}
+.copyright a {
+	color: #fff;
+}
+.copyright a:hover {
+	color: #33a49a;
+}
+.mid-body{
+	margin: 20px 30%;
+}
+.mid-body table{
+	font-size: 17px;
+	text-align: center;
+}
+.mid-body table th{
+	background-color: #8fd0ca;
+}
+.mid-body table tr{
+	height: 50px;
+}
+.mid-body table td{
+	font-size: 13px;
+}
+
+

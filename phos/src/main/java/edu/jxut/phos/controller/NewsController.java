@@ -1,7 +1,11 @@
 package edu.jxut.phos.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import edu.jxut.phos.pojos.UserComment;
+import edu.jxut.phos.server.NewsServer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @Author MengYuan Zhang
@@ -11,4 +15,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/news")
 public class NewsController {
+
+    @Autowired
+    private NewsServer newsServer;
+
+    @GetMapping("/list")
+    public List testList(){
+        List<UserComment> userComments = newsServer.selectList();
+        return userComments;
+    }
+    @PostMapping("/add")
+    public boolean addComment(@RequestBody UserComment userComment){
+        if (newsServer.addComment(userComment).equals("success")){
+            return true;
+        }else {
+            return false;
+        }
+    }
 }

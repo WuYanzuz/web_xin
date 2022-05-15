@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/monk.ui.css"/>
+</head>
+
+<body>
+
+<div class="C-head">
+    <div class="w1200 clearfix">
+        <a class="logo" href=""></a>
+        <div class="nav">
+            <ul>
+                <li class='tip'>
+                    <i></i>
+                    <a href="index.html">
+
+                        <span class="s-all">首页<span class="s-en">Home</span></span>
+                    </a>
+                </li>
+
+                <li>
+                    <i></i>
+                    <a href='wedding.html'>
+
+                        <span class='s-all'>评论<span class='s-en'>Comment</span></span>
+                    </a>
+                </li>
+
+                <li>
+                    <i></i>
+                    <a href='photoer.html'>
+
+                        <span class='s-all'>选摄影师<span class='s-en'>Photographer</span></span>
+                    </a>
+                </li>
+                <li>
+                    <i></i>
+                    <a href='spots.html'>
+
+                        <span class='s-all'>拍摄景点<span class='s-en'>Spots</span></span>
+                    </a>
+                </li>
+                <li>
+                    <i></i>
+                    <a href='information.html'>
+
+                        <span class='s-all'>热门活动<span class='s-en'>Activities</span></span>
+                    </a>
+                </li>
+
+                <li><i></i>
+                    <a href="brand.html"><span class="s-all">品牌<span class="s-en">Brand</span></span>
+                    </a>
+                </li>
+                <li><i></i>
+                    <a href="member.html"><span class="s-all">会员<span class="s-en">Member</span></span>
+                    </a>
+                    <i class="last"></i>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="mid-body">
+    <table id="midTable">
+        <tr>
+            <th><b>用户</b></th>
+            <th><b>评论时间</b></th>
+            <th><b>评论</b></th>
+        </tr>
+        <tr>
+            <td><img src="../img/login2.gif" style="width: 200px;height: 200px"></td>
+            <td><img src="../img/login2.gif" style="width: 200px;height: 200px"></td>
+            <td><img src="../img/login2.gif" style="width: 200px;height: 200px"></td>
+        </tr>
+
+    </table>
+</div>
+<div class="footer-wrap mar-t20">
+    <div class="copyright">
+        <a href="#" style="color: #fff;text-decoration: none;">赣备100000016号</a> &nbsp;<a href="#" style="color: #fff; text-decoration: none;"></a></a><br /> @JXUT.EDU 19本电商二班
+    </div>
+</div>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    window.onload=function (){
+        axios.get("http://211.159.223.55:10088/news/list").then(function (resp){
+            let comment = resp.data;
+            let tableDate="<tr>\n" +
+                "            <th><b>用户</b></th>\n" +
+                "            <th><b>评论时间</b></th>\n" +
+                "            <th><b>评论</b></th>\n" +
+                "        </tr>";
+            for (let i = 0; i < comment.length; i++) {
+                let element = comment[i];
+                tableDate+="<tr>\n" +
+                    "            <td style='width: 300px'>"+element.name+"</td>\n" +
+                    "            <td style='width: 300px'>"+element.dateTime+"</td>\n" +
+                    "            <td style='width: 300px'>"+element.comment+"</td>\n" +
+                    "        </tr>"
+            }
+            document.getElementById("midTable").innerHTML=tableDate;
+        })
+    }
+
+
+</script>
+</body>
+
+</html>
