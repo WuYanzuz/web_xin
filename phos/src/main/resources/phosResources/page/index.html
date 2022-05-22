@@ -87,7 +87,7 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
     window.onload=function (){
-        axios.get("http://211.159.223.55:10088/news/list").then(function (resp){
+        axios.get("http://localhost:8848/news/list").then(function (resp){
             let comment = resp.data;
             let tableDate="<tr>\n" +
                 "            <th><b>用户</b></th>\n" +

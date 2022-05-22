@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <a href="addBrand.html"><input type="button" value="新增"></a><br>
+    <hr>
+    <table id="brandTable" border="1" cellspacing="0" width="100%">
+        <tr>
+            <th>序号</th>
+            <th>品牌名称</th>
+            <th>企业名称</th>
+            <th>排序</th>
+            <th>品牌介绍</th>
+            <th>状态</th>
+            <th>操作</th>
+        </tr>
+        <tr v-for="(brand,i) in brands">
+            <td>{{brand.id}}</td>
+            <td>{{brand.author}}</td>
+            <td>{{brand.title}}</td>
+            <td>{{brand.comment}}</td>
+        </tr>
+    </table>
+</div>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script src="../js/vue.js"></script>
+
+<script>
+    new Vue({
+        el: "#app",
+        data() {
+            return {
+                brands: []
+            }
+        },
+        mounted() {
+            var _this = this;
+            axios({
+                method: "get",
+                url: "http://localhost:8848/news/list"
+            }).then(function (resp) {
+                _this.brands = resp.data
+            })
+        },
+    });
+
+</script>
+
+</body>
+</html>
