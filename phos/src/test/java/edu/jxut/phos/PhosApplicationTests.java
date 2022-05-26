@@ -46,4 +46,9 @@ class PhosApplicationTests {
         List<UserComment> userComments = userCommentMapper.selectList(null);
         userComments.forEach(s-> System.out.println(s));
     }
+
+    @Test
+    public void selectNews(){
+        List<News> news = newsMapper.selectList(null);
+    }
 }
