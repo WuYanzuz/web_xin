@@ -1,5 +1,5 @@
 server:
-  port: 8848
+  port: 8845
 #spring
 spring:
   application:
@@ -8,10 +8,6 @@ spring:
     username: root
     password: TCfMPzhYXn6hEWaY
     url: jdbc:mysql://211.159.223.55:3306/jxut
-
-#跨域开关
-cors:
-  switch: false
 
 
 

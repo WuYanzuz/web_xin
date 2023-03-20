@@ -51,7 +51,7 @@
                 </li>
 
                 <li><i></i>
-                    <a href="brand.html"><span class="s-all">品牌<span class="s-en">Brand</span></span>
+                    <a href="../back/brand.html"><span class="s-all">品牌<span class="s-en">Brand</span></span>
                     </a>
                 </li>
                 <li><i></i>
@@ -67,7 +67,7 @@
     <table id="midTable">
         <tr>
             <th><b>用户</b></th>
-            <th><b>评论时间</b></th>
+            <th><b>评时间</b></th>
             <th><b>评论</b></th>
         </tr>
         <tr>
@@ -87,7 +87,7 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
     window.onload=function (){
-        axios.get("http://localhost:8848/news/list").then(function (resp){
+        axios.get("http://127.0.0.1:8848/news/list").then(function (resp){
             let comment = resp.data;
             let tableDate="<tr>\n" +
                 "            <th><b>用户</b></th>\n" +
@@ -109,5 +109,6 @@
 
 </script>
 </body>
+
 
 </html>

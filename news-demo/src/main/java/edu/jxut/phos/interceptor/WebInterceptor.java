@@ -15,15 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 public class WebInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        String requestURI = request.getRequestURI();
-        String requestPath = request.getRequestURL().toString();
-        String remoteAddr = request.getRemoteAddr();
-
-        if (!remoteAddr.contains("localhost:8848")){
-            log.info("跨域请求:{}",requestPath);
-        }
-        log.info("请求路径为:{}",requestURI);
-
+        log.info("请求路径为:{}",request.getRequestURI());
         return HandlerInterceptor.super.preHandle(request, response, handler);
     }
 }

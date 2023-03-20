@@ -3,7 +3,6 @@ package edu.jxut.phos.config;
 
 import edu.jxut.phos.interceptor.WebInterceptor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -20,15 +19,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 @Slf4j
 @Configuration
 public class WebConfig extends WebMvcConfigurationSupport {
-
-    @Value("${cors.switch}")
-    private boolean corsSwitch;
-
     @Override
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
         log.info("开始静态资源映射");
         registry.addResourceHandler("/favicon.ico").addResourceLocations("classpath:/");
-        registry.addResourceHandler("/xin/**").addResourceLocations("classpath:/phosResources/");
+        registry.addResourceHandler("/xin/**").addResourceLocations("classpath:/newsResources/");
     }
 
     @Override
@@ -37,17 +32,9 @@ public class WebConfig extends WebMvcConfigurationSupport {
                 .addPathPatterns("/**");
     }
 
-    /**
-     * 跨域支持
-     * @param registry
-     */
+    //跨域支持
     @Override
     protected void addCorsMappings(CorsRegistry registry) {
-        log.info("跨域请求:{}",corsSwitch);
-        if (!corsSwitch){
-            return;
-        }
-
         registry.addMapping("/**")
                 //放行哪些原始域
                 .allowedOriginPatterns("*")
